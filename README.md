@@ -12,7 +12,7 @@ for us to work on the front-end for the prototype.
 **How to run this:**
 1) npm init
 2) npm install *following dependencies* --save 
-   i. "cookie-session"
+   >> "cookie-session"
    ii. "express"
    iii. "mongoose"
    iv. "passport"
