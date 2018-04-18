@@ -19,7 +19,7 @@ for us to work on the front-end for the prototype.
    > "passport-google-oauth20"
    > "path"
 3) run node app.js on your terminal 
-4) localhost:3000 and *voila*
+4) localhost:8000 and *voila*
 
 *Again, please update this ^ as you add other dependencies.* 
 
