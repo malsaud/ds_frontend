@@ -16,7 +16,7 @@ for us to work on the front-end for the prototype.
    > "express"
    > "mongoose"
    > "passport"
-   > "passport-google-oauth20": "^1.0.0",
+   > "passport-google-oauth20"
    > "path"
 3) run node app.js on your terminal 
 4) localhost:3000 and ~*viola*~
