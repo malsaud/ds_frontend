@@ -31,7 +31,7 @@ passport.use(
 						googleId: profile.id
 					}).save().then((newUser) => {
 						console.log('created' + newUser);
-						done(null, currentUser);
+						done(null, newUser);
 					});
 				}
 			});
