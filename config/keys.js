@@ -1,3 +1,4 @@
+//Securing keys here
 module.exports = {
 	google: {
 		clientID:'349780415882-ldqq6ejl7kuhhkk30gvq4pvqt9ek47bp.apps.googleusercontent.com',
