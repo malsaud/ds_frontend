@@ -5,6 +5,7 @@ Hello friends!!!!!
 1) Front-end for DS from our ~ mini-hackathon ~
 2) Secure sign-in/google authentication.
 3) Search functionality. 
+4) Python script for processing data. 
 4) Pre-processed data on population density and the database. 
 5) SQL queries that provide the client with population density data in decimal form. 
 
