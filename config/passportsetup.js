@@ -3,6 +3,7 @@ const GoogleStrategy = require('passport-google-oauth20');
 const keys = require('./keys');
 const User = require('../models/usermodel');
 
+//To keep information about user available during session.
 passport.serializeUser((user, done) => {
 	done(null, user.id);
 });
@@ -13,7 +14,7 @@ passport.deserializeUser((id, done) => {
 });
 
 
-
+//Passport setup, callback and validation function. 
 passport.use(
 	new GoogleStrategy({
 		callbackURL: '/auth/google/redirect',
