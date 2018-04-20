@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Density Spot</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<script src="home.js"></script>
+	<link rel="stylesheet" type="text/css" href="home.css"/>
+
+</head>
+
+<body>
+	<div id="top">
+		<h1 id="header">Density Spot</h1>
+		<h3 id="brown">Brown University</h3>
+	</div>
+	<div id="nav">
+		<ul id="nav_link_container">
+			<li id="nav_home"><a href="home.html">Home</a></li>
+			<li id="nav_map"><a href="map.html">Map</a></li>
+			<li id="nav_about"><a href="about.html">About</a></li>
+		</ul>
+	</div>
+	<!-- <div class="dropdown">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Location
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+	    <button class="dropdown-item" type="button">North Campus</button>
+	    <button class="dropdown-item" type="button">South Campus</button>
+	    <button class="dropdown-item" type="button">West Campus</button>
+	    <button class="dropdown-item" type="button">East Campus</button>
+	  </div>
+	</div> -->
+
+	<div id="content">
+		<!-- <div class="dropdown"> -->
+		  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Dropdown button
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		      <MenuItem>North Campus</MenuItem>
+		  </div>
+		</div> -->
+			<!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="typeDropdown">Location</button> -->
+			<!-- <div class="dropdown-menu" aria-labelledby="dropdownMenu2"> -->
+			    <button class="btn dropdown-item" type="button" id="item" onclick="filterByLocation('north')">North Campus</button>
+			    <button class="btn dropdown-item" type="button" id="item" onclick="filterByLocation('south')">South Campus</button>
+			    <button class="btn dropdown-item" type="button" id="item" onclick="filterByLocation('west')">West Campus</button>
+			    <button class="btn dropdown-item" type="button" id="item" onclick="filterByLocation('east')">East Campus</button>
+			    <button class="btn dropdown-item" type="button" id="item" onclick="filterByLocation('all')">Show All</button>
+			 <!-- </div> -->
+		<!-- </div> -->
+
+		<input type="text" id="search" onkeyup="searchBars()" placeholder="Search for a study spot!">
+		<div class="east progress-h" id="scili">
+			<p class="label">Sciences Library (SciLi)</p>
+			<div class="progress"> 
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="scili-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div> <!-- style="width: 80%" -->
+			</div>
+		</div>
+		<div class="east progress-h" id="cit">
+			<p class="label">Center for Information Technology (CIT)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="cit-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100""></div>
+			</div>
+		</div>
+		<div class="west progress-h" id="rock">
+			<p class="label">John D. Rockefeller Jr. Library (Rock)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="rock-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="west progress-h" id="hay">
+			<p class="label">John Hay Library (Hay)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="hay-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="west progress-h" id="faunce">
+			<p class="label">Stephen Robert Campus Center (Faunce)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="faunce-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="east progress-h" id="barus and holley">
+			<p class="label">Barus and Holley</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="bh-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="north progress-h" id="andrews">
+			<p class="label">Andrews Commons (Andrews)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="a-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="north progress-h" id="jww">
+			<p class="label">J. Walter Wilson (JWW)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="jww-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="south progress-h" id="watson">
+			<p class="label">Watson Institute (Watson)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="w-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<div class="south progress-h" id="ratty">
+			<p class="label">Sharpe Refectory (Ratty)</p>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" id="ratty-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

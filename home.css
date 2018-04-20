@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+body,div,h1,h3,ul {
+	padding: 0;
+	margin: 0 auto;
+}
+
+h1, h3, ul {
+	text-align: center;
+}
+
+body{
+	background-color: rgba(237, 239, 250, 0.85);
+}
+
+#top{
+	background-color: rgba(57, 82, 212, 0.85);
+	height: 150px;
+}
+
+#header{
+	margin-bottom: 10px;
+}
+
+h3{
+	font-family: Montserrat, regular;
+	font-size: 38px;
+	color: rgb(255,255,255, 0.9);
+	font-weight: lighter;
+}
+
+h1{
+	font-family: Montserrat;
+	color: white;
+	font-weight: bold;
+	font-size: 70px;
+}
+
+#nav_home, #nav_map, #nav_about{
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 30px;
+	padding: 5px;
+}
+
+#nav_home:hover, #nav_map:hover, #nav_about:hover{
+	background-color: rgba(57, 82, 212, 0.85);
+}
+
+#nav_map, #nav_home{
+	margin-right: 110px;
+}
+
+#nav_home a{
+	font-family: Montserrat, regular;
+	text-decoration: none;
+	color: white;
+}
+
+#nav_map a{
+	font-family: Montserrat, regular;
+	text-decoration: none;
+	color: white;
+
+}
+
+#nav_about a{
+	font-family: Montserrat, regular;
+	text-decoration: none;
+	color: white;
+
+}
+
+#nav{
+	height: 50px;
+	background-color: #6E80E0;
+}
+
+.progress-h {
+	width: 748px;
+	height: 137px;
+	margin: auto;
+	background-color: white;
+	border-radius: 7px;
+	margin-top: 40px;
+	padding-top: 25px;
+}
+
+.label {
+	font-family: "Montserrat", sans-serif;
+	font-size: 30px;
+	padding-left: 37px;
+	padding-top: 47px;
+	color: black;
+	font-weight: lighter;
+}
+.progress {
+	margin-top: 20px;
+	width: 679px;
+	height: 32px;
+	border-radius: 100px;
+	background-color: rgba(237, 239, 250, 1);
+}
+
+#content, #search {
+	text-align: center;
+}
+
+#search {
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	width: 300px;
+	height: 40px;
+	border-radius: 3px;
+}
+
+.progress-ha {
+	width: 748px;
+	height: 137px;
+	margin: auto;
+	background-color: white;
+	border-radius: 7px;
+	margin-top: 70px;
+	padding-top: 25px;
+}
+
+.dropdown {
+	/*margin: 0 auto;*/
+	margin-top: 20px;
+}
+
+.dropdown-menu {
+	margin-bottom: 5px;
+}
+
+.dropdown-item {
+	padding-top: 0px;
+}
+
+.btn {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
