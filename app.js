@@ -1,3 +1,4 @@
+//Setting up dependencies 
 const express = require('express');
 const path = require('path');
 const passportSetup = require('./config/passportsetup');
@@ -8,21 +9,31 @@ const keys = require('./config/keys');
 const cookeiSession = require('cookie-session');
 const app = express();
 const passport = require('passport');
-
+const bodyParser = require('body-parser');
+//database
+const anyDB = require('any-db');
+const conn = anyDB.createConnection('sqlite3://density.db');
+const engines = require('consolidate');
+//using time
+const strftime = require('strftime-component');
+const file = require('file-system');
+const fs = require('fs');
+const parse = require('csv-parse');
+//To use HTML/CSS/JS files 
 app.use(express.static("."));
-
+//Setting up cookie session
 app.use(cookeiSession({
 	maxAge: 24 * 60 * 6 * 1000,
 	keys: [keys.session.cookieKey]
 }));
-
+//Middleware setup
 app.use(passport.initialize());
 app.use(passport.session());
-
+//Connecting to MongoDB database 
 mongoose.connect(keys.mongodb.dbURL, () => {
 	console.log('connected to mongodb');
 });
-
+//Middleware setup
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 
@@ -35,19 +46,19 @@ app.listen(8080, () => {
 	console.log("Port 8080");
 });
 
-var bodyParser = require('body-parser');
-//database
-var anyDB = require('any-db');
-var conn = anyDB.createConnection('sqlite3://density.db');
-//building note and html pages
+// var bodyParser = require('body-parser');
+// //database
+// var anyDB = require('any-db');
+// var conn = anyDB.createConnection('sqlite3://density.db');
+// //building note and html pages
 
-var engines = require('consolidate');
-//using time
-var strftime = require('strftime-component');
+// var engines = require('consolidate');
+// using time
+// var strftime = require('strftime-component');
 
-var file = require('file-system');
-var fs = require('fs');
-var parse = require('csv-parse');
+// var file = require('file-system');
+// var fs = require('fs');
+// var parse = require('csv-parse');
 
 //more body parser
 app.use(bodyParser.json());
