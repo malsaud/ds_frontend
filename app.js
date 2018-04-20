@@ -46,20 +46,6 @@ app.listen(8080, () => {
 	console.log("Port 8080");
 });
 
-// var bodyParser = require('body-parser');
-// //database
-// var anyDB = require('any-db');
-// var conn = anyDB.createConnection('sqlite3://density.db');
-// //building note and html pages
-
-// var engines = require('consolidate');
-// using time
-// var strftime = require('strftime-component');
-
-// var file = require('file-system');
-// var fs = require('fs');
-// var parse = require('csv-parse');
-
 //more body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -104,8 +90,6 @@ app.get('/getDensities', function(request, response){
 	var hour = parseInt(strftime('%l'));
 	var pm = strftime('%p');
 	var time = hour + ":00 " + pm;
-	console.log(day); //ensure these work
-	console.log(time);
 	var sql = 'SELECT location, population FROM density WHERE day=$1 AND time=$2 ORDER BY location ASC';
 	conn.query(sql, [day, time], function(error, result){
 		if (error) {
@@ -130,8 +114,6 @@ app.get('/getDensities', function(request, response){
 app.post('/home/queryTime', function(request, response){
 	var day = request.body.day;
 	var time = request.body.hour; //tell client side that this be properly formatted!
-	console.log(day);
-	console.log(time);
 	var sql = 'SELECT location, population FROM density WHERE day=$1 AND time=$2 ORDER BY location ASC';
 	conn.query(sql, [day, time], function(error, result){
 		if (error) {
@@ -139,7 +121,6 @@ app.post('/home/queryTime', function(request, response){
 			console.log("no data??");
 		}
 		var currDens = result.rows;
-		console.log(currDens);
 		for (var i = 0; i <= currDens.length-1; i++) {
 			var currPOP = currDens[i].population;
 			var scCurrPOP = (currPOP * intv); //should console log these!
