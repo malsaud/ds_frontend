@@ -12,7 +12,7 @@ router.get('/google', passport.authenticate('google', {
 
 }));
 
-//Second get request in this route. Redirects user to home page if user authentication was successful. 
+//Second get request in this route. Redirects user to profile route if user authentication was successful. 
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 	res.redirect('/profile/');
 });
