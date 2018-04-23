@@ -4,7 +4,7 @@ Hello!
 **What this repo contains:**
 1) Front-end for DS (HTML, CSS, JS).
 2) Secure sign-in/google authentication.
-3) Search functionality. 
+3) Search and filtering functionality. 
 4) Python script for processing data. 
 4) Pre-processed data on population density and the database. 
 5) SQL queries that provide the client with population density data in decimal form. 
