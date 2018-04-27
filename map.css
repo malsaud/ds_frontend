@@ -27,7 +27,8 @@ body{
 h3{
 	font-family: Montserrat, regular;
 	font-size: 38px;
-	color: rgb(255,255,255, 0.9);
+	color: #ffffff;
+    	opacity: 0.9;
 	font-weight: lighter;
 }
 
