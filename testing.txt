@@ -1,0 +1,104 @@
+ - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Username: malsaud
+Project: Density Spot
+
+Responsible for testing accessibility, security, and compatibility.
+
+Since our project is up on localhost, I used chrome extensions to test accessibility
+and compatibility. 
+
+- Accessibility (WAVE extension):
+
+    Test results:
+        ERRORS:
+            1) Document language missing:
+                The language of the document is not identified.
+
+            2) Missing form label:
+                A form control does not have a corresponding label.
+
+            3) Missing alternative text:
+                Image alternative text is not present.
+        ALERTS:
+            1) Possible heading:
+                Text appears to be a heading but is not a heading element.
+
+            2) Skipped heading level:
+                A heading level is skipped.
+
+    Steps taken to fix errors:
+
+        1) Added <html lang="en"> to every HTML document.
+        2) Added the following in home.html and home.css:
+            <label for="search" class="visuallyhidden">Search for a study spot!</label>
+
+            .visuallyhidden {
+              border: 0;
+              clip: rect(0 0 0 0);
+              height: 1px;
+              margin: -1px;
+              overflow: hidden;
+              padding: 0;
+              position: absolute;
+              width: 1px;
+            }
+
+        3) Added alternative text to all images in maps.html
+
+- Compatibility (Broswer Stack Chrome Extension):
+
+    Tested Microsoft Edge, Firefox, and Chrome on Windows and Mac.
+    Also tested Android, iPad Air and iPhone 6s.
+
+    Test results:
+        Chrome and Firefox on Mac and Windows: No errors.
+        Microsoft Edge on Windows:
+            1) "Brown University" is in black, not white.
+        Android:
+            1) "Brown University" is in black, not white.
+            2) Sign in button too small.
+        iPhone 6S:
+            1) Sign in button is grey, not blue.
+            2) "Brown University" is in black, not white.
+        iPad Air:
+            1) Sign in button is grey, not blue.
+            2) "Brown University" is in black, not white.
+
+    Steps taken to fix errors:
+        1) Changed all colors to websafe color values.
+            Hex color #83b8d6 -> Websafe #99cccc
+            RGB color (255, 255, 255) -> Websafe #ffffff
+        2) Made sign in button bigger.
+
+- Security (SecApps)
+
+    - All GET requests were processed successfully.
+
+    Testing Results (Vulnerabilities):
+        1) Autocomplete enabled:
+            An attacker able to access the browser cache can retrieve sensible
+            information in cleartext.
+            PROBLEM:
+                <form id="login_form" action="/auth/google">
+            SOLUTION:
+                Added autocomplete="off"
+                <form id="login_form" autocomplete="off" action="/auth/google">
+
+        2) Error disclosure:
+            The application/server could disclose error information within its source code.
+            PROBLEM:
+                http://localhost:8080/auth/google/redirect?code='%3E%3CTQbBH%3E# HTTP/1.1
+            SOLUTION:
+                This is OAuth-related (Google's API), and is taken care of in their source code.
+
+        3) Cross-Script Included
+            The application included external scripts. Must ensure they're trusted scripts.
+            PROBLEM:
+                http://code.jquery.com/jquery-1.11.1.min.js
+                https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+                https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
+            SOLUTION:
+                All external scripts are in fact trusted scripts and were provided by the
+                instructor and TAs.
+                
+ - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
