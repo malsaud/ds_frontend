@@ -15,6 +15,17 @@ body{
 	background-color: rgba(237, 239, 250, 0.85);
 }
 
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 #top{
 	background-color: rgba(57, 82, 212, 0.85);
 	height: 150px;
