@@ -4,6 +4,8 @@ const path = require('path');
 const passportSetup = require('./config/passportsetup');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
+const mapRoutes = require('./routes/map-routes');
+const aboutRoutes = require('./routes/about-routes');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookeiSession = require('cookie-session');
@@ -36,6 +38,8 @@ mongoose.connect(keys.mongodb.dbURL, () => {
 //Middleware setup
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/map', mapRoutes);
+app.use('/about', aboutRoutes);
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + '/login.html'));
