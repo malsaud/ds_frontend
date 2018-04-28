@@ -1,11 +1,102 @@
- - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Username: malsaud
+- - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Username: jjiang15
 Project: Density Spot
 
-Responsible for testing accessibility, security, and compatibility.
+Responsible for testing front end (CSS / HTML) and Performance & Stress Testing
 
-Since our project is up on localhost, I used chrome extensions to test accessibility
-and compatibility. 
+- Front End Validating:
+  HTML:
+  about.html: No errors or warnings
+
+  home.html:
+  -duplicate IDs, fixed
+  -use of xml:id, not serializable by XML1.0
+
+  login.html: No errors or warnings
+
+  map.html:
+  -needed to escape spaces in src attribute of images by %20
+
+  CSS:
+  home.css: No errors or warnings
+
+  login.css: No errors or warnings
+
+  map.css:
+  -Error: width: Too many values or values are not recognized. (changed width:relative)
+
+- Performance Testing
+  PAGESPEED
+  High Priority Testing -
+  RECOMMENDATION + Our Score
+  *if score of 100, nothing to do there!*
+
+  Defer parsing of JavaScript: A (91)
+  Avoid bad requests: A (92)
+  Optimize the order of styles and scripts A (92)
+  Enable gzip compression	A (93)
+  Leverage browser caching	A (96)
+  Minify CSS	A (99)
+  Minify JavaScript	A (99)
+  Avoid landing page redirects	A (100)
+  Enable Keep-Alive	A (100)
+  Inline small CSS	A (100)
+  Inline small JavaScript	A (100)
+  Minimize redirects	A (100)
+  Minimize request size	A (100)
+  Optimize images	A (100)
+  Put CSS in the document head	A (100)
+  Serve resources from a consistent URL	A (100)
+  Serve scaled images	A (100)
+  Specify a cache validator	A (100)
+  Combine images using CSS sprites	A (100)
+
+  Medium Priority Recommendations
+  RECOMMENDATION + Our Score
+
+  Avoid CSS @import	A (92)
+  Prefer asynchronous resources	A (100)
+  Specify a Vary: Accept-Encoding header	A (99)
+  Specify a character set early	A (100)
+  Specify image dimensions	A (100)
+  Avoid a character set in the meta tag	A (100)
+  Remove query strings from static resources	A (100)
+
+  YSLOW:
+  There are 5 static components without a far-future expiration date.
+  https://fonts.googleapis.com/css?family=Montserrat:400,700
+  http://876f4ba9.ngrok.io/profile/home.js
+  http://876f4ba9.ngrok.io/profile/home.css
+  https://fonts.googleapis.com/css?family=Montserrat:500
+  https://fonts.googleapis.com/css?family=Montserrat
+
+- Load testing
+  Used BlazeMeter - a Chrome extension that has JMeter as its underlying
+  software - to test our load ability
+
+  Max Users - 1001VU
+  Avg Throughput - 1.36Hits/s
+  Errors - 6.4%
+  Avg. Response Time - 686.66ms
+  90% Response Time - 525ms
+  Avg. Bandwidth - 1.4KiB/s
+
+  Throughput seems very low, but might be flaw with testing software because
+  tried it manually with a few friends accessing site, and it seemed to be
+  functioning correctly
+
+  Also realized that our website currently has a flaw that while we require
+  a login at first, any user can access other page if given direct address correctly
+  [easily fixed by changing to get requests as rendering files instead of directly
+  loading html files]
+  - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ Username: malsaud
+ Project: Density Spot
+
+ Responsible for testing accessibility, security, and compatibility.
+
+ Since our project is up on localhost, I used chrome extensions to test accessibility
+ and compatibility.
 
 - Accessibility (WAVE extension):
 
@@ -100,5 +191,5 @@ and compatibility.
             SOLUTION:
                 All external scripts are in fact trusted scripts and were provided by the
                 instructor and TAs.
-                
+
  - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

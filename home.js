@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 	searchBars();
 	changeBarWidth();
@@ -8,12 +7,16 @@ $(document).ready(function() {
 function searchBars(){
 	$("#content div").each(function(i, curr)
 	{
+		console.log("running");
 		var name = $(curr).attr('id');
+		console.log(name);
+		var alt = $(curr).attr('xml:id');
+		console.log(alt);
 		var sn = document.getElementById('search').value.toLowerCase();
 		if (sn == "") {
 			$('#content > div').show();
 		}
-		else if(sn == name){
+		else if(sn == name || sn == alt){
 			$("#content > div").hide();
 			$('#content > div[id*="'+name+'"]').show();
 		}
@@ -83,5 +86,3 @@ function filterByLocation(loc) {
 		$(".east").show();
 	}
 }
-
-
