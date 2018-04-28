@@ -5,7 +5,7 @@ router.use(express.static("."));
 //Another authentication check here. 
 const authCheck = (req, res, next) => {
 	if(!req.user){
-		res.redirect('/auth/login');
+		res.redirect('/');
 	} else{
 		next();
 	}
