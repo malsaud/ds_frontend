@@ -14,6 +14,7 @@ Hello!
 2) npm install *following dependencies* --save 
    > "cookie-session"
    > "express"
+   > "ejs express"
    > "mongoose"
    > "passport"
    > "passport-google-oauth20"
