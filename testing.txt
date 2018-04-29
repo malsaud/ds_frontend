@@ -191,5 +191,16 @@ Responsible for testing front end (CSS / HTML) and Performance & Stress Testing
             SOLUTION:
                 All external scripts are in fact trusted scripts and were provided by the
                 instructor and TAs.
+                
+  - Fixed HTML Security Issue (Detected by Janna): 
+  
+      1) Made all list items (navigation buttons in nav bar) redirect to paths instead of html documents. 
+      2) Turned all html documents to ejs documents for the following reason: 
+          -  ejs files are "rendered" from the server-side, not sent as html files (what we did before). 
+             this makes it impossible for anyone to view the site simply because the path to the ejs file 
+             does not exist on the server and will not be rendered onto the browser. the only thing an 
+             unauthenticated user could possibly gain access to is source code (assuming they somehow know 
+             the path to the web page). 
+      
 
  - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
