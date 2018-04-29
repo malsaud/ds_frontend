@@ -23,6 +23,7 @@ const fs = require('fs');
 const parse = require('csv-parse');
 //To use HTML/CSS/JS files 
 app.use(express.static("."));
+app.set('view engine', 'ejs');
 //Setting up cookie session
 app.use(cookeiSession({
 	maxAge: 24 * 60 * 6 * 1000,
