@@ -1,4 +1,43 @@
 - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Username: hcho8
+Project: Density Spot
+
+Responsible for usability and website/application testing
+
+-Usability Testing:
+     Created a user test for 3 random users on usertesting.com from the ages of 18-35
+     - I wanted to limit the age range to a rough estimate of those that would most likely use our website (current Brown            undergrads and graduate students) and see how well they could navigate the website
+     The test:
+     Introduction
+        Imagine that you are about to leave and find a place to sit down and get work done on a college campus. It's a busy           time of year and you want to check how busy certain places are.
+
+     Tasks
+        Launch URL: https://www.figma.com/proto/K5qIXV9IOwBxemryRhLbbKaK/Density-Spot?node-id=2%3A4&scaling=contain
+        You have been taken to: https://www.figma.com/proto/K5qIXV9IOwBxemryRhLbbKaK/Density-Spot?node-                               id=2%3A4&scaling=contain. When you see the page, move on to the next step.
+        Get access to the website (pretend that you've logged in with the right credentials) and click log in.
+        Check how busy the Friedman Study Center in the Sciences library is.
+        Navigate to the map and find the Sciences library.
+     Questions
+        How intuitive was it to navigate the site? Were the progress bars meaningful to you?
+        What frustrated you most about this site? Is there anything that you wish this site had?
+        What did you like about the site?
+        How likely are you to recommend this site to a friend or colleague (0=Not at all likely, and 10=Very Likely)?
+
+      Of the three users we tested, all three found the interface simple enough to use and the navigation was intuitive. The         map was the most difficult to use, as is understandable since the functionality on that page has not been completed yet.       Users found the map difficult to read and use (actually find anything). 2/3 users noted that it would be nice to have         some kind of zoom functionality and one user helpfully noted that a search bar here would be useful. These are features       we would love to integrate, or at the very least, use a more intuitive/useable map.
+      The progress bars made sense after reading the "About" page to see how the data was collected and interpreted to show         current results.
+      All the users were pleased with its purpose and would recommend the app to a friend.
+      
+      Takeaway: Navigation and interface is intuitive and easy to use (except for the map). Use a different map or make             accessing the map much easier by adding a search bar/color-coding/zoom functionality. 
+
+- Website Testing:
+  Used the Selenium IDE to test a couple of simple interactions with the interface (as it is very basic and only a limited       amount of items to actually interact with).
+  Tests:
+  - Log in, filter results by location (north, south, east, west), search for CIT, Rock, Hay, and navigate to Map and About       pages (this encompasses all the functionality of the website)
+    - Logging in failed, but this was either due a security issue (not being able to authenticate a Brown account) or not           being able to track Google authentication when running test
+  - Interact with website already logged in
+    - All steps passed
+  
+- - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Username: jjiang15
 Project: Density Spot
 
