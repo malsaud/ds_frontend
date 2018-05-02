@@ -1,4 +1,4 @@
-//Setting up dependencies 
+//Setting up dependencies
 const express = require('express');
 const path = require('path');
 const passportSetup = require('./config/passportsetup');
@@ -21,7 +21,7 @@ const strftime = require('strftime-component');
 const file = require('file-system');
 const fs = require('fs');
 const parse = require('csv-parse');
-//To use HTML/CSS/JS files 
+//To use HTML/CSS/JS files
 app.use(express.static("."));
 app.set('view engine', 'ejs');
 //Setting up cookie session
@@ -32,7 +32,7 @@ app.use(cookeiSession({
 //Middleware setup
 app.use(passport.initialize());
 app.use(passport.session());
-//Connecting to MongoDB database 
+//Connecting to MongoDB database
 mongoose.connect(keys.mongodb.dbURL, () => {
 	console.log('connected to mongodb');
 });
@@ -41,6 +41,8 @@ app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 app.use('/map', mapRoutes);
 app.use('/about', aboutRoutes);
+
+module.exports = app;
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + '/login.html'));
@@ -56,12 +58,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//on client side we'll basically have a $.(document).ready(function)... that uses setInterval to make /getDensities request 
+//on client side we'll basically have a $.(document).ready(function)... that uses setInterval to make /getDensities request
 //every 10 min or hour
 //also another post request for future/past times
 //both will return an array of 10 locations with density info
 
-// Hard coding in 
+// Hard coding in
 // -max value of building
 // -number of students interviewed
 // -max number of people reported in a building
@@ -118,7 +120,7 @@ app.get('/getDensities', function(request, response){
 
 app.post('/home/queryTime', function(request, response){
 	var day = request.body.day;
-	var time = request.body.hour; //tell client side that this be properly formatted!
+	var time = request.body.time; //tell client side that this be properly formatted!
 	var sql = 'SELECT location, population FROM density WHERE day=$1 AND time=$2 ORDER BY location ASC';
 	conn.query(sql, [day, time], function(error, result){
 		if (error) {

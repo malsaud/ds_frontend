@@ -1,17 +1,51 @@
+var currLoc = "";
+
 $(document).ready(function() {
+	// CURRENT B U G: not popping up again when user refreshes or tries to access
+	// before logging in then actually logs in
+	if(localStorage.getItem('popState') != 'shown'){
+		$("#popup").hide().fadeIn(1000);
+		$("#text1").hide().fadeIn(1000);
+         localStorage.setItem('popState','shown')
+     }
+		 //close the POPUP if the button with id="close" is clicked
+		 $("#submit1").on("click", function (e) {
+				 e.preventDefault();
+				 $("#popup").fadeOut(1000);
+		 });
+		 $("#submit2").on("click", function (e) {
+				 e.preventDefault();
+				 $("#popup2").fadeOut(1000);
+		 });
 	searchBars();
 	changeBarWidth();
 });
 
+function processCurrLoc() {
+	var dataLoc = $("#currLoc").val(); // this is the location string as formatted in database
+	console.log(dataLoc);
+	if (dataLoc != "") {
+		currLoc = dataLoc;
+		var selectedOption = $( "#currLoc option:selected" ).text(); // this is the more user friendly name
+		$("#fullQ").text("How full is " + selectedOption + " ?");
+		$("#popup2").hide().fadeIn(1500);
+		$("#text2").hide().fadeIn(1500);
+	}
+}
+
+function processNewInfo() {
+	// use global variable and entered number to update the database
+	var newPercent = $("#currDensity").val();
+	newPercent = parseInt(newPercent);
+	newPercent = newPercent / 100; // prints decimal correctly
+	// TODO send post request to server
+}
 
 function searchBars(){
 	$("#content div").each(function(i, curr)
 	{
-		console.log("running");
 		var name = $(curr).attr('id');
-		console.log(name);
 		var alt = $(curr).attr('xml:id');
-		console.log(alt);
 		var sn = document.getElementById('search').value.toLowerCase();
 		if (sn == "") {
 			$('#content > div').show();
@@ -29,7 +63,7 @@ var intvl1 = setInterval(changeBarWidth, 3600000); //set every hour: 3600000, ev
 function changeBarWidth() {
 	$.get('/getDensities', function(data, status) {
 		if (status === "success") {
-			console.log(data.densities);
+			// console.log(data.densities);
 			var dens = [];
 			//turn decimal values into percent values for jquery progress bar
 			for (var i=0; i<data.densities.length; i++) {

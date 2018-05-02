@@ -120,6 +120,43 @@ h1{
 	text-align: center;
 }
 
+#popup{
+            display:none;
+            position:absolute;
+            margin:0 auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+						border: 1px solid black;
+    }
+
+#popup2 {
+	position:absolute;
+	margin:0 auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	border: 1px solid black;
+
+}
+
+#percentFull {
+	width: 80px;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.textbox {
+	display:none;
+	background-color: white;
+	width: 300px;
+	height:100px;
+	text-align: center;
+	margin: 0 auto;
+}
+
 #search {
 	margin-top: 20px;
 	border: 1px solid #ccc;
@@ -154,16 +191,3 @@ h1{
 .btn {
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
