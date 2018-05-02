@@ -1,4 +1,35 @@
 - - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Username: amelamed
+Project: Density Spot
+
+Responsible for backend testing
+
+Backend Testing:
+Wound up using mocha and chai for backend testing
+
+Installed mocha and chai (npm install -save mocha, chai) and set a testing directory
+
+These work by setting a set of descriptions of what different server functions should do and have .expect/.should/.assert functions testing expected outputs from the server
+
+In our case, we have a fairly simple backend that takes either the current time (get) or a requested time (post) and returns the array of locations with the population density (in the form of a fraction) 
+
+In order to test this using the mocha and chai I set up 2 describe/it functions that made a request to app.js using chai. The first made the get request to /getDensities, the second a post to /home/queryTime, sending Monday, 6:00pm as the requested time.
+
+Now mocha and chai let you test certain attributes of your program. In particular, I tested that the status returned is 200, and that the array of locations has all 10 locations filled. In the getDensities scenario, we unfortunately cannot test particular values of the array since these values change every hour. For the post request, we can test particular values, however in order to do a deep check of an array, I had to test particular values as opposed to having expect(array1).to.equal(array2)
+
+When first running this, I actually caught an error/deficiency in our post function on the server side. The server wasn’t intuitively handling the day and time sent over to it (it requested a day and hour which is the only place the program asked for “hour” instead of “time”). So I fixed that up to make it more intuitive. 
+
+Otherwise, all expectations were met, tests were passed and both get/post functions work as intended.
+
+I ran the test on the terminal using ./node_modules/mocha/bin/mocha
+
+And the results:
+  App
+    getDensities
+✓ should return array of current populations
+✓ should return array of population at requested time/day
+2 passing (63ms)
+- - - - - - - - - - - - - - - - - - - - -- - - -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Username: hcho8
 Project: Density Spot
 
