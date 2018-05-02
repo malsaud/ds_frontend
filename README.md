@@ -27,6 +27,11 @@ Hello!
    > "file-system"
    > "fs"
    > "csv-parse"
+   > "chai"
+   > "chai-http"
+   > "mocha"
+   > "ejs-express-layouts"
+   > "ejs"
 3) run node app.js on your terminal 
 4) localhost:8080 and *voila*
    
