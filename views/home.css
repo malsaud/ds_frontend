@@ -12,7 +12,8 @@ h1, h3, ul {
 }
 
 body{
-	background-color: rgba(237, 239, 250, 0.85);
+	/*background-color: rgba(237, 239, 250, 0.85);*/
+	background-color: rgb(119, 93, 59);
 }
 
 .visuallyhidden {
