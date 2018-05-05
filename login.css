@@ -1,5 +1,6 @@
 body {
-  background-color: rgba(57, 82, 212, 0.85);
+  /*background-color: rgba(57, 82, 212, 0.85);*/
+  background-color: rgb(111, 66, 30);
 }
 
 h1 {
@@ -9,6 +10,7 @@ h1 {
   font-size: 90px;
   color: #ffffff;
   margin-bottom: 0px;
+  padding-top: 50px;
 }
 
 .text{
@@ -42,14 +44,18 @@ h1 {
 
 #submit_msg {
   font-family: 'Montserrat', sans-serif;
-  background-color: #99cccc;
+  /*background-color: #99cccc;*/
+  background-color: rgb(229, 70, 52);
   text-align: center;
   display: inline-block;
   color: #ffffff;
-  width: 858px;
+  /*width: 858px;*/
+  width: 420px;
   height: 60px;
   font-size: 20px;
   margin-top: 40px;
+  border-width: 0px;
+  border-radius: 2px;
 }
 
 #links {

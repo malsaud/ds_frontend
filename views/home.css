@@ -12,8 +12,8 @@ h1, h3, ul {
 }
 
 body{
-	/*background-color: rgba(237, 239, 250, 0.85);*/
-	background-color: rgb(119, 93, 59);
+	background-color: rgba(237, 239, 250, 0.85);
+	/*background-color: rgb(119, 93, 59);*/
 }
 
 .visuallyhidden {
@@ -29,7 +29,7 @@ body{
 
 #top{
 	background-color: rgba(57, 82, 212, 0.85);
-	height: 150px;
+	height: 200px;
 }
 
 #header{
@@ -42,9 +42,11 @@ h3{
 	color: #ffffff;
     	opacity: 0.9;
 	font-weight: lighter;
+	padding-top: 10px;
 }
 
 h1{
+	padding-top: 40px;
 	font-family: Montserrat;
 	color: white;
 	font-weight: bold;
@@ -158,6 +160,10 @@ h1{
 	margin: 0 auto;
 }
 
+.container {
+	display: inline-block;
+}
+
 #search {
 	margin-top: 20px;
 	border: 1px solid #ccc;
@@ -166,19 +172,79 @@ h1{
 	border-radius: 3px;
 }
 
-.progress-ha {
+.allpbars {
+	margin-top: 38px;
+	display: flex;
+	flex-direction: column;
+}
+
+.progress-h { 
 	width: 748px;
 	height: 137px;
 	margin: auto;
 	background-color: white;
 	border-radius: 7px;
-	margin-top: 70px;
+	margin-top: 0px;
 	padding-top: 25px;
+	margin-bottom: 50px;
+}
+
+#scili {
+	order: 0;
+}
+
+#cit {
+	order: 1;
+}
+
+#rock {
+	order: 2;
+}
+
+#hay {
+	order: 3;
+}
+
+#faunce {
+	order: 4;
+}
+
+#bh {
+	order: 5;
+}
+
+#andrews{
+	order: 6;
+}
+
+#jww {
+	order: 7;
+}
+
+#watson {
+	order: 8;
+}
+
+#ratty {
+	order: 9;
 }
 
 .dropdown {
 	/*margin: 0 auto;*/
 	margin-top: 20px;
+	display: inline-block;
+	padding-right: 10px;
+}
+
+#menu1 {
+	height: 39.6px;
+	/*background-color: rgba(237, 239, 250, 0.85);*/
+	background-color: rgba(255, 34, 10, 0.9);
+	border: 0px;
+}
+
+#searchbar {
+	display: inline-block;
 }
 
 .dropdown-menu {
@@ -189,6 +255,17 @@ h1{
 	padding-top: 0px;
 }
 
-.btn {
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
