@@ -110,6 +110,7 @@ function filterByDensity(option) {
 	for (var i=0; i<bars.length; i++) {
 		$(sorted[i][1]).css("order", i);
 		console.log(sorted[i][1] + " " + $(sorted[i][1]).css("order"));
+		
 	}
 }
 
