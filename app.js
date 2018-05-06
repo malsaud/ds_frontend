@@ -139,3 +139,17 @@ app.post('/home/queryTime', function(request, response){
 		response.json({densities: currDens});
 	});
 });
+
+
+//Predicting here. BUG: doesn't get here for some reason??? Might be the path...Try /map/predict?
+app.post('/predict', predictTime);
+
+function predictTime(request, response){
+  	var loc = request.params.loc;
+	var t = request.params.t; //tell client side that this be properly formatted!
+	console.log(t);
+	console.log(loc);
+	//TO DO: query by time/location, return the result. 
+}
+
+
