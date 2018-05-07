@@ -150,6 +150,10 @@ background-image: url(janna.jpg);
 background-image: url(bear_4.jpg);
 }
 
+#lastParagraph {
+	padding-bottom: 80px;
+}
+
 #Adi:hover {
 background-image: url(adi.jpg);
 }
