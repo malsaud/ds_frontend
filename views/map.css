@@ -103,7 +103,7 @@ h1{
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;*/
- 
+
     /* Position the tooltip text - see examples below! */
 /*    position: absolute;
     z-index: 1;
@@ -174,37 +174,34 @@ h1{
 
 
 #container{
-	background-image: linear-gradient(to top, rgba(205, 156, 242, 0.40) 0%, rgba(246, 255, 255, 0.71) 100%);
 	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
 	text-align: center;
 	border-radius: 5px;
 	margin: 3em auto;
 	background: rgba(255, 255, 255, 0.95);
-	height: 300px;
+	height: 380px;
 	width: 480px;
 	padding: 1em;
-		
+
 }
 
-#container h2 {
-	background: url(https://static.pexels.com/photos/5782/nature-flowers-vintage-plant.jpg);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-	font-family: 'Playfair Display', serif;
+h2 {
+	padding-top: 20px;
+	font-family: Montserrat, regular;
+	font-size: 30px;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size:cover;
 	letter-spacing: 2px;
-	font-size: 3.5em;
+	font-size: 2.5em;
 	margin: 0;
-
-	
-	
 }
+
 #container p {
-	font-family: 'Farsan', cursive;
+	font-family: Montserrat, regular;
 	margin: 3px 0 1.5em 0;
-	font-size: 1.3em;
+	font-size: 1.0em;
+	padding-top: 10px;
 	color: #7d7d7d;
 }
 
@@ -258,13 +255,12 @@ HERE 2
   color: #fff;
   font-size: inherit;
   padding: .5em;
-  padding-right: 2.5em; 
+  padding-right: 2.5em;
   border: 0;
-  margin-bottom: 55px;
-  margin-top: 55px;
+  margin-bottom: 25px;
+  margin-top: 15px;
   border-radius: 3px;
   text-indent: 0.01px;
   text-overflow: '';
   -webkit-appearance: button; /* hide default arrow in chrome OSX */
 }
-

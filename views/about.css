@@ -96,15 +96,18 @@ h1{
 
 /* REST OF DESIGN HERE */
 
-#content p{
+.content p{
 	font-family: Montserrat;
 	font-weight: lighter;
 	text-align: center;
-	font-size: 21px;
+	font-size: 18px;
 }
 
-#content{
-	width: 80%;
+#highlight {
+	color: rgb(219, 28, 28);
+}
+.content{
+	width: 70%;
 }
 
 #profiles {
@@ -150,6 +153,10 @@ background-image: url(janna.jpg);
 	height: 200px;
    width: 300px;
 background-image: url(bear_4.jpg);
+}
+
+#lastParagraph {
+	padding-bottom: 80px;
 }
 
 #Adi:hover {
