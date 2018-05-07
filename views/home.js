@@ -69,7 +69,7 @@ function searchBars(){
 	});
 }
 
-var intvl1 = setInterval(changeBarWidth, 3600000); //set every hour: 3600000, every min: 60,000
+var intvl1 = setInterval(changeBarWidth, 30000); //set every hour: 3600000, every min: 60,000
 // var invtl2 = setInterval(sendData, 60000);
 var bars = [".andrews-bar", ".bh-bar", ".cit-bar", ".faunce-bar", ".hay-bar", ".jww-bar", ".ratty-bar", ".rock-bar", ".scili-bar", ".watson-bar"];
 
