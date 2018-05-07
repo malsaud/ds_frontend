@@ -54,17 +54,18 @@ function processNewInfo() {
 }
 
 function searchBars(){
-	$("#content div").each(function(i, curr)
-	{
+	$(".allpbars div").each(function(i, curr) {
 		var name = $(curr).attr('id');
 		var alt = $(curr).attr('xml:id');
 		var sn = document.getElementById('search').value.toLowerCase();
+		console.log(sn);
 		if (sn == "") {
-			$('#content > div').show();
+			$('.allpbars > div').show();
 		}
 		else if(sn == name || sn == alt){
-			$("#content > div").hide();
-			$('#content > div[id*="'+name+'"]').show();
+			console.log("in search");
+			$(".allpbars > div").hide();
+			$('.allpbars > div[id*="'+name+'"]').show();
 		}
 	});
 }
