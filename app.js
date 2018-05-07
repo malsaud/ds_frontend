@@ -43,6 +43,7 @@ app.use('/map', mapRoutes);
 app.use('/about', aboutRoutes);
 
 module.exports = app;
+// conn.query('CREATE TABLE density (id INTEGER PRIMARY KEY AUTOINCREMENT, location TEXT, day TEXT, time TEXT, population INTEGER)');
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + '/login.html'));
@@ -67,30 +68,75 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // -max value of building
 // -number of students interviewed
 // -max number of people reported in a building
-var citm = 600;
-var citrm = 15;
-var rockm = 500;
-var rockrm = 6;
-var haym = 180;
-var hayrm = 4;
-var fauncem = 300;
-var fauncerm = 6;
-var barusm = 300;
-var barusrm = 5;
-var andrewsm = 180;
-var andrewsrm = 4;
-var watsonm = 60;
-var watsonrm = 1;
-var rattym = 300;
-var rattyrm = 4;
-var scilim = 550;
-var scilirm = 11;
-var jwwm = 250;
-var jwwrm = 5;
-var intv = 40;
 
-var maxes = [andrewsm, barusm, citm, fauncem, haym, jwwm, rattym, rockm, scilim, watsonm];
-var rmaxes = [andrewsrm, barusrm, citrm, fauncerm, hayrm, jwwrm, rattyrm, rockrm, scilirm, watsonrm]; //check value of these
+// *****TODO: CHANGE TO JSON ARRAY AND RECREATE DB***** 
+const maxes = {
+"CITm" : 600,
+"CITrm" :15,
+"ROCKm" : 500,
+"ROCKrm" : 6,
+"HAYm" : 180,
+"HAYrm" : 4,
+"FAUNCEm" : 300,
+"FAUNCErm" : 6,
+"BARUSm" : 300,
+"BARUSrm" : 5,
+"ANDREWSm" : 180,
+"ANDREWSrm" : 4,
+"WATSONm" : 60,
+"WATSONrm" : 1,
+"RATTYm" : 300,
+"RATTYrm" : 4,
+"SCILIm" : 550,
+"SCILIrm" : 11,
+"JWWm" : 250,
+"JWWrm" : 5,
+}
+const intv = 40
+// var maxes = [andrewsm, barusm, citm, fauncem, haym, jwwm, rattym, rockm, scilim, watsonm];
+// var rmaxes = [andrewsrm, barusrm, citrm, fauncerm, hayrm, jwwrm, rattyrm, rockrm, scilirm, watsonrm]; //check value of these
+
+// TRANSFERRING CSV TO DATABASE!!!!!!
+// fs.readFile("densities.csv", function(err, fileData){
+// 	parse(fileData, function(err, rows) {
+//     	if (err){
+// 			console.log(err);
+// 			console.log("file reading probably didn't work");
+// 		}
+		
+// 		for (var i = 0; i <= rows.length - 1; i++) {
+// 			var pop = rows[i][4];
+// 			var loc = rows[i][1]; //*****DO WE NEED TO CHECK IF THESE ARE NOT NULL/PLACEHOLDER?
+// 			if(loc != "HOLDER" || loc != null){
+// 				var locm = loc + "m";
+// 				var locrm = loc + "rm";
+// 				var scPop = pop*intv;
+// 				console.log(scPop);
+// 				var scMax = (0.3 * [maxes.locm]); //********WILL THIS WORK WITH THE JSON ARRAY
+// 				console.log(scMax);
+// 				var scRMax = (0.7* intv * maxes[locrm]);
+// 				console.log(scRMax);
+// 				pop =  scPop / (scMax + scRMax);
+// 			}
+// 			var sql = 'INSERT INTO density VALUES(NULL, $1, $2, $3, $4)';
+// 				conn.query(sql, [rows[i][1], rows[i][2], rows[i][3], pop], function(error, result){
+// 				if (error) {
+// 					console.log(error);
+// 				}
+// 			}); 
+
+
+// 		};
+// 		var sql2 = 'SELECT location, population FROM density WHERE location=$1 AND population=$2 ORDER BY location ASC';
+// 		conn.query(sql2, ["CIT", 15], function(error, result){
+// 			if (error){
+// 				console.log("we got an error");
+// 			}
+// 			console.log(result.rows);
+// 		});
+//     // Your CSV data is in an array of arrys passed to this callback as rows.
+//   });
+// });
 
 app.get('/getDensities', function(request, response){
 	var day = strftime('%A').toUpperCase();
@@ -106,50 +152,72 @@ app.get('/getDensities', function(request, response){
 		var currDens = result.rows;
 		console.log(currDens); //check!
 		console.log(currDens[0].population);
-		for (var i = 0; i <= currDens.length-1; i++) {
-			var currPOP = currDens[i].population;
-			var scCurrPOP = (currPOP * intv); //should console log these!
-			var scMax = (0.3 * maxes[i]);
-			var scRMax = (0.7* intv *rmaxes[i]);
-			currDens[i].population =  scCurrPOP / (scMax + scRMax); //should console long this too!
+		// for (var i = 0; i <= currDens.length-1; i++) {
+		// 	var currPOP = currDens[i].population;
+		// 	var scCurrPOP = (currPOP * intv); //should console log these!
+		// 	var scMax = (0.3 * maxes[i]);
+		// 	var scRMax = (0.7* intv *rmaxes[i]);
+		// 	currDens[i].population =  scCurrPOP / (scMax + scRMax); //should console long this too!
 
-		};
+		// };
 		response.json({densities: currDens});
 	});
 });
 
-app.post('/home/queryTime', function(request, response){
+app.post('/map/predict', function(request, response){
 	var day = request.body.day;
-	var time = request.body.time; //tell client side that this be properly formatted!
-	var sql = 'SELECT location, population FROM density WHERE day=$1 AND time=$2 ORDER BY location ASC';
-	conn.query(sql, [day, time], function(error, result){
+	var t = request.body.t;  //tell client side that this be properly formatted!
+	var loc = request.body.loc;
+
+	var sql = 'SELECT location, population FROM density WHERE location=$1 AND day=$2 AND time=$3';
+	conn.query(sql, [loc, day, t], function(error, result){
 		if (error) {
 			response.status(500).type('html');
 			console.log("no data??");
 		}
 		var currDens = result.rows;
-		for (var i = 0; i <= currDens.length-1; i++) {
-			var currPOP = currDens[i].population;
-			var scCurrPOP = (currPOP * intv); //should console log these!
-			var scMax = (0.3 * maxes[i]);
-			var scRMax = (0.7* intv *rmaxes[i]);
-			currDens[i].population =  scCurrPOP / (scMax + scRMax); //should console long this too!
+		// var currPOP = currDens[0].population;
+		// var scCurrPOP = (currPOP * intv); //should console log these!
+		// var scMax = (0.3 * maxes[i]);
+		// var scRMax = (0.7* intv *rmaxes[i]);
+		// currDens[i].population =  scCurrPOP / (scMax + scRMax);
+		
 
-		};
 		response.json({densities: currDens});
 	});
 });
 
-
-//Predicting here. BUG: doesn't get here for some reason??? Might be the path...Try /map/predict?
-app.post('/predict', predictTime);
-
-function predictTime(request, response){
-  	var loc = request.params.loc;
-	var t = request.params.t; //tell client side that this be properly formatted!
-	console.log(t);
+app.post('/home/updateDens', function(request, response){
+	var loc = request.body.loc; 
 	console.log(loc);
-	//TO DO: query by time/location, return the result. 
-}
+	var rpDens = request.body.dens;
+	console.log(rpDens);
+	var day = strftime('%A').toUpperCase();
+	var hour = parseInt(strftime('%l'));
+	var pm = strftime('%p');
+	var time = hour + ":00 " + pm;
+	console.log(day);
+	console.log(time);
+	// var stDens;
+	var sql = 'SELECT population FROM density WHERE location=$1 AND day=$2 AND time=$3';
+	conn.query(sql, [loc, day, time], function(error, result){
+
+		var stDens = result.rows[0].population;
+		var newDens = rpDens*(0.3) + stDens*(0.7);
+
+		console.log(stDens);
+		console.log(newDens);
+		
+		var sql2 = 'UPDATE density SET population=$1 WHERE location=$2 AND day=$3 AND time=$4';
+		conn.query(sql2, [newDens, loc, day, time], function(error, result){
+			if (error) {
+				console.log("oh no error!");
+			}
+		});
+	});
+
+	
+
+});
 
 

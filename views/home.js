@@ -6,7 +6,7 @@ $(document).ready(function() {
 	if(localStorage.getItem('popState') != 'shown'){
 		$("#popup").hide().fadeIn(1000);
 		$("#text1").hide().fadeIn(1000);
-         localStorage.setItem('popState','shown')
+         localStorage.setItem('popState','shown');
      }
 		 //close the POPUP if the button with id="close" is clicked
 		 $("#submit1").on("click", function (e) {
@@ -38,7 +38,11 @@ function processNewInfo() {
 	var newPercent = $("#currDensity").val();
 	newPercent = parseInt(newPercent);
 	newPercent = newPercent / 100; // prints decimal correctly
-	// TODO send post request to server
+	console.log("currLoc");
+	$.post('/home/updateDens', {dens: newPercent, loc: currLoc}, function(response){
+	
+	});
+	
 }
 
 function searchBars(){

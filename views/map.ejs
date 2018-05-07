@@ -7,13 +7,25 @@
 	<!-- TO DO: Post request!!!! Send what the user inputted to 
 	app.js, query there, return result -->
 	<script>
-	function predict(){
+	$(document).ready(function(){
+		$('#predButton').submit(predict);
+	});
+	function predict(event){
+		event.preventDefault();
 		var loc = document.getElementById("location");
 		console.log("location is " + loc);
 		var t = document.getElementById("stime");
 		console.log("time is" + t);
 
-		$.post('/predict', {loc: loc, t: t}, function(res){
+		var day = document.getElementById("sday");
+		console.log("day is" + sday);
+
+		$.post('/map/predict', {loc: loc, t: t, day: day}, function(response){
+			var pred = $('#ourPrediction');
+			pred.empty();
+			var den = response.densities[0]*100;
+			console.log(den);
+			pred.text(den);
 		});
 	}
 
@@ -53,38 +65,49 @@
 <span class="custom-dropdown small">
 
 <select id="stime">
-  <option value="0">12:00 am</option>
-  <option value="1">1:00 am</option>
-  <option value="2">2:00 am</option>
-  <option value="3">3:00 am</option>
-  <option value="4">4:00 am</option>
-  <option value="5">5:00 am</option>
-  <option value="6">6:00 am</option>
-  <option value="7">7:00 am</option>
-  <option value="8">8:00 am</option>
-  <option value="9">9:00 am</option>
-  <option value="10">10:00 am</option>
-  <option value="11">11:00 am</option>
-  <option value="12">12:00 pm</option>
-  <option value="13">1:00 pm</option>
-  <option value="14">2:00 pm</option>
-  <option value="15">3:00 pm</option>
-  <option value="16">4:00 pm</option>
-  <option value="17">5:00 pm</option>
-  <option value="18">6:00 pm</option>
-  <option value="19">7:00 pm</option>
-  <option value="20">8:00 pm</option>
-  <option value="21">9:00 pm</option>
-  <option value="22">10:00 pm</option>
-  <option value="23">11:00 pm</option>
+  <option value="9:00 AM">9:00 am</option>
+  <option value="10:00 AM">10:00 am</option>
+  <option value="11:00 AM">11:00 am</option>
+  <option value="12:00 PM">12:00 pm</option>
+  <option value="1:00 PM">1:00 pm</option>
+  <option value="2:00 PM">2:00 pm</option>
+  <option value="3:00 PM">3:00 pm</option>
+  <option value="4:00 PM">4:00 pm</option>
+  <option value="5:00 PM">5:00 pm</option>
+  <option value="6:00 PM">6:00 pm</option>
+  <option value="7:00 PM">7:00 pm</option>
+  <option value="8:00 PM">8:00 pm</option>
+  <option value="9:00 PM">9:00 pm</option>
+  <option value="10:00 PM">10:00 pm</option>
+  <option value="11:00 PM">11:00 pm</option>
+  <option value="12:00 AM">12:00 am</option>
+  <option value="1:00 AM">1:00 am</option>
+  <option value="2:00 AM">2:00 am</option>
+  <option value="3:00 AM">3:00 am</option>
 </select>
-	<form onclick="predict()" >
-			<br>
-		<button>Subscribe</button>
+
+<span class="custom-dropdown small">
+
+<select id="sday">
+  <option value="MONDAY">Monday</option>
+  <option value="TUESDAY">Tuesday</option>
+  <option value="WEDNESDAY">Wednesday</option>
+  <option value="THURSDAY">Thursday</option>
+  <option value="FRIDAY">Friday</option>
+  <option value="SATURDAY">Saturday</option>
+  <option value="SUNDAY">Sunday</option>
+
+
+</select>
+
+	<form method="POST" action="/map/predict" id="predButton">
+		<input type="submit" value="Subscribe" onclick="predict()">
 	</form>
 
-
+<h2 id="ourPrediction"><h2>
 </div>
+
+
 </body>
 
 </html>
