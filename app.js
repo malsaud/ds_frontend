@@ -39,7 +39,7 @@ mongoose.connect(keys.mongodb.dbURL, () => {
 //Middleware setup
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
-app.use('/map', mapRoutes);
+app.use('/predict', mapRoutes);
 app.use('/about', aboutRoutes);
 
 module.exports = app;
@@ -164,7 +164,7 @@ app.get('/getDensities', function(request, response){
 	});
 });
 
-app.post('/map/predict', function(request, response){
+app.post('/predict/predict', function(request, response){
 	var day = request.body.day;
 	var t = request.body.t;  //tell client side that this be properly formatted!
 	var loc = request.body.loc;
