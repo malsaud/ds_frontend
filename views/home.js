@@ -105,7 +105,7 @@ function filterByDensity(option) {
 		console.log(parent);
 		s.push(parent);
 		sorted.push(s);
-		
+
 	}
 	opt = option;
 	sorted.sort(sortNum);
@@ -114,7 +114,7 @@ function filterByDensity(option) {
 	for (var i=0; i<bars.length; i++) {
 		$(sorted[i][1]).css("order", i);
 		console.log(sorted[i][1] + " " + $(sorted[i][1]).css("order"));
-		
+
 	}
 }
 
@@ -143,7 +143,7 @@ function sortNum(a, b) {
 	        return (a[1] < b[1]) ? -1 : 1;
 	    }
 	}
-    
+
 }
 
 
@@ -181,16 +181,3 @@ function filterByLocation(loc) {
 		$(".east").show();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
