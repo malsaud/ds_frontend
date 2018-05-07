@@ -4,34 +4,32 @@
 	<title>Density Spot</title>
 	<link rel="stylesheet" href="map.css" type="text/css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- TO DO: Post request!!!! Send what the user inputted to 
-	app.js, query there, return result -->
-	<script>
-	$(document).ready(function(){
-		$('#predButton').submit(predict);
-	});
-	function predict(event){
-		event.preventDefault();
-		var loc = document.getElementById("location");
-		console.log("location is " + loc);
-		var t = document.getElementById("stime");
-		console.log("time is" + t);
-
-		var day = document.getElementById("sday");
-		console.log("day is" + sday);
-
-		$.post('/map/predict', {loc: loc, t: t, day: day}, function(response){
-			var pred = $('#ourPrediction');
-			pred.empty();
-			var den = response.densities[0]*100;
-			console.log(den);
-			pred.text(den);
-		});
-	}
-
-	</script>
 </head>
+<script>
+$(document).ready(function(){
+    var form = $('#UGH').submit(predict);
+});
 
+function predict(event){
+  event.preventDefault();
+  var loc = $( "#location option:selected" ).val();
+  console.log("location is " + loc);
+  var t = $( "#stime option:selected" ).val();
+  console.log("time is" + t);
+	var day = $( "#sday option:selected" ).val();
+  console.log("day is" + day);
+
+  $.post('/map/predict', {loc: loc, t: t, day: day}, function(response){
+		console.log(response.densities[0].population);
+		var den = Math.ceil((response.densities[0].population)*100) + "%";
+		console.log(den);
+	  var pred = $('#ourPrediction');
+    pred.empty();
+    pred.text(den);
+  });
+}
+
+</script>
 <body>
 	<div id="top">
 		<h1 id="header">Density Spot</h1>
@@ -47,7 +45,7 @@
 	<div id="container">
 	<h2>Prediction</h2>
 <span class="custom-dropdown big">
-    <select id="location">    
+    <select id="location">
 	  <option value="SCILI">SciLi</option>
 	  <option value="CIT">CIT</option>
 	  <option value="ROCK">The Rock</option>
@@ -58,7 +56,6 @@
 		<option value="JWW">JWW</option>
 		<option value="WATSON">Watson</option>
 		<option value="RATTY">The Ratty</option>
-		<option value="">N/A</option>
     </select>
 </span>
 
@@ -100,8 +97,8 @@
 
 </select>
 
-	<form method="POST" action="/map/predict" id="predButton">
-		<input type="submit" value="Subscribe" onclick="predict()">
+	<form action="formsubmit" id="UGH">
+		<input type="submit" value="Subscribe" id="submit_msg">
 	</form>
 
 <h2 id="ourPrediction"><h2>

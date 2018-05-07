@@ -69,7 +69,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // -number of students interviewed
 // -max number of people reported in a building
 
-// *****TODO: CHANGE TO JSON ARRAY AND RECREATE DB***** 
+// *****TODO: CHANGE TO JSON ARRAY AND RECREATE DB*****
 const maxes = {
 "CITm" : 600,
 "CITrm" :15,
@@ -103,7 +103,7 @@ const intv = 40
 // 			console.log(err);
 // 			console.log("file reading probably didn't work");
 // 		}
-		
+
 // 		for (var i = 0; i <= rows.length - 1; i++) {
 // 			var pop = rows[i][4];
 // 			var loc = rows[i][1]; //*****DO WE NEED TO CHECK IF THESE ARE NOT NULL/PLACEHOLDER?
@@ -123,7 +123,7 @@ const intv = 40
 // 				if (error) {
 // 					console.log(error);
 // 				}
-// 			}); 
+// 			});
 
 
 // 		};
@@ -176,19 +176,12 @@ app.post('/map/predict', function(request, response){
 			console.log("no data??");
 		}
 		var currDens = result.rows;
-		// var currPOP = currDens[0].population;
-		// var scCurrPOP = (currPOP * intv); //should console log these!
-		// var scMax = (0.3 * maxes[i]);
-		// var scRMax = (0.7* intv *rmaxes[i]);
-		// currDens[i].population =  scCurrPOP / (scMax + scRMax);
-		
-
 		response.json({densities: currDens});
 	});
 });
 
 app.post('/home/updateDens', function(request, response){
-	var loc = request.body.loc; 
+	var loc = request.body.loc;
 	console.log(loc);
 	var rpDens = request.body.dens;
 	console.log(rpDens);
@@ -207,7 +200,7 @@ app.post('/home/updateDens', function(request, response){
 
 		console.log(stDens);
 		console.log(newDens);
-		
+
 		var sql2 = 'UPDATE density SET population=$1 WHERE location=$2 AND day=$3 AND time=$4';
 		conn.query(sql2, [newDens, loc, day, time], function(error, result){
 			if (error) {
@@ -216,8 +209,6 @@ app.post('/home/updateDens', function(request, response){
 		});
 	});
 
-	
+
 
 });
-
-

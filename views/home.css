@@ -31,7 +31,7 @@ body{
 
 #top{
 	/*background-color: rgba(57, 82, 212, 0.85);*/
-	background-color: rgb(219, 28, 28); 
+	background-color: rgb(219, 28, 28);
 	/*background-color: rgb(117, 69, 5);*/
 	/*background-color: rgb(229, 70, 52);*/
 	height: 200px;
@@ -160,6 +160,17 @@ h1{
 
 }
 
+#popup3 {
+	position:absolute;
+	margin:0 auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	border: 1px solid black;
+
+}
+
 #percentFull {
 	width: 80px;
 	display: inline-block;
@@ -193,7 +204,7 @@ h1{
 	flex-direction: column;
 }
 
-.progress-h { 
+.progress-h {
 	width: 748px;
 	height: 137px;
 	margin: auto;
@@ -271,18 +282,3 @@ h1{
 .dropdown-item {
 	padding-top: 0px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

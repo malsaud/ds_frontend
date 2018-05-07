@@ -16,6 +16,12 @@ $(document).ready(function() {
 		 $("#submit2").on("click", function (e) {
 				 e.preventDefault();
 				 $("#popup2").fadeOut(1000);
+				 $("#popup3").hide().fadeIn(1500);
+				 $("#text3").hide().fadeIn(1500);
+		 });
+		 $("#submit3").on("click", function (e) {
+				 e.preventDefault();
+				 $("#popup3").fadeOut(1000);
 		 });
 	searchBars();
 	changeBarWidth();
@@ -30,6 +36,9 @@ function processCurrLoc() {
 		$("#fullQ").text("How full is " + selectedOption + " ?");
 		$("#popup2").hide().fadeIn(1500);
 		$("#text2").hide().fadeIn(1500);
+	} else {
+		$("#popup3").hide().fadeIn(1500);
+		$("#text3").hide().fadeIn(1500);
 	}
 }
 
@@ -40,9 +49,8 @@ function processNewInfo() {
 	newPercent = newPercent / 100; // prints decimal correctly
 	console.log("currLoc");
 	$.post('/home/updateDens', {dens: newPercent, loc: currLoc}, function(response){
-	
 	});
-	
+
 }
 
 function searchBars(){
