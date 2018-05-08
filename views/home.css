@@ -12,9 +12,6 @@ h1, h3, ul {
 }
 
 body{
-	/*background-color: rgba(237, 239, 250, 0.85);*/
-	/*background-color: rgba(204, 167, 126, 0.8);*/
-	/*background-color: rgb(255, 238, 238);*/
 	background-color: rgba(250, 239, 237, 0.8);
 }
 
@@ -63,7 +60,6 @@ h1{
 }
 
 #nav_home:hover, #nav_map:hover, #nav_about:hover{
-	/*background-color: rgba(57, 82, 212, 0.85);*/
 	background-color: rgba(119, 66, 15, 0.85);
 }
 
@@ -93,8 +89,6 @@ h1{
 
 #nav{
 	height: 50px;
-	/*background-color: #6E80E0;*/
-	/*background-color: rgba(229, 66, 66, 0.86);*/
 	background-color: rgb(160, 67, 12);
 }
 

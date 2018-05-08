@@ -34,7 +34,7 @@ h3{
 }
 
 h5 {
-	font-family: Montserrat;
+	font-family: Montserrat, regular;
 	color: black;
 	font-size: 40px;
 	text-align: center;
@@ -44,7 +44,7 @@ h5 {
 
 h1{
 	padding-top: 40px;
-	font-family: Montserrat;
+	font-family: Montserrat, regular;
 	color: white;
 	font-weight: bold;
 	font-size: 70px;
@@ -62,7 +62,7 @@ h1{
 	background-color: rgba(119, 66, 15, 0.85);
 }
 
-#nav_map, #nav_home{
+#nav_map, #nav_home, #nav_about{
 	margin-right: 110px;
 }
 

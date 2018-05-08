@@ -12,27 +12,44 @@ h1, h3, ul {
 }
 
 body{
-	background-color: #EDEFFA;
+	background-color: rgba(250, 239, 237, 0.8);
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 #top{
-	background-color: rgba(57, 82, 212, 0.85);
-	height: 150px;
+	background-color: rgb(219, 28, 28);
+	height: 200px;
 }
 
 #header{
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+#brown {
+	padding-bottom: 15px;
 }
 
 h3{
 	font-family: Montserrat, regular;
 	font-size: 38px;
 	color: #ffffff;
-    	opacity: 0.9;
+    opacity: 0.9;
 	font-weight: lighter;
+	padding-top: 10px;
 }
 
 h1{
+	padding-top: 40px;
 	font-family: Montserrat;
 	color: white;
 	font-weight: bold;
@@ -47,7 +64,7 @@ h1{
 }
 
 #nav_home:hover, #nav_map:hover, #nav_about:hover{
-	background-color: rgba(57, 82, 212, 0.85);
+	background-color: rgba(119, 66, 15, 0.85);
 }
 
 #nav_map, #nav_home{
@@ -62,7 +79,6 @@ h1{
 
 #nav_map a{
 	font-family: Montserrat, regular;
-
 	text-decoration: none;
 	color: white;
 
@@ -70,7 +86,6 @@ h1{
 
 #nav_about a{
 	font-family: Montserrat, regular;
-
 	text-decoration: none;
 	color: white;
 
@@ -78,7 +93,7 @@ h1{
 
 #nav{
 	height: 50px;
-	background-color: #6E80E0;
+	background-color: rgb(160, 67, 12);
 }
 
 
