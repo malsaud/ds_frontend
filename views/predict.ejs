@@ -20,7 +20,7 @@ function predict(event){
 	var day = $( "#sday option:selected" ).val();
   console.log("day is" + day);
 
-  $.post('/map/predict', {loc: loc, t: t, day: day}, function(response){
+  $.post('/predict/predict', {loc: loc, t: t, day: day}, function(response){
 		console.log(response.densities[0].population);
 		var den = Math.ceil((response.densities[0].population)*100) + "%";
 		console.log(den);
