@@ -15,7 +15,7 @@ const authCheck = (req, res, next) => {
 
 //Shows HTML home page. 
 router.get('/', authCheck, (req, res) => {
-	res.render('map');
+	res.render('predict');
 });
 
 module.exports = router;

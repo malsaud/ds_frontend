@@ -4,7 +4,7 @@ const path = require('path');
 const passportSetup = require('./config/passportsetup');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
-const mapRoutes = require('./routes/map-routes');
+const predictRoutes = require('./routes/predict-routes');
 const aboutRoutes = require('./routes/about-routes');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
@@ -39,7 +39,7 @@ mongoose.connect(keys.mongodb.dbURL, () => {
 //Middleware setup
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
-app.use('/predict', mapRoutes);
+app.use('/predict', predictRoutes);
 app.use('/about', aboutRoutes);
 
 module.exports = app;
